@@ -1,4 +1,5 @@
 import Fastify from "fastify";
+import { port } from "./config";
 
 const fastify = Fastify({
     logger: true
@@ -11,7 +12,7 @@ fastify.get("/", async (request, reply) => {
     }
 });
 
-fastify.listen({ port: 3000, host: "0.0.0.0" }, (err, address) => {
+fastify.listen({ port: port, host: "0.0.0.0" }, (err, address) => {
     if (err) {
         console.error(err);
         return;
