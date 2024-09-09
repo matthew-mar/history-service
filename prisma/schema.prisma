@@ -12,3 +12,18 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+enum ActionType {
+  ProductCreated
+  StockLevelCreated
+  StockLevelIncreased
+  StockLevelDecreased
+}
+
+model Action {
+  id Int @id @default(autoincrement())
+  shopId Int?
+  plu Int
+  date BigInt
+  action ActionType
+}
